@@ -1,18 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:paddingTop="50dp">
 
-    <TextView
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/big_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:rotation="-7"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/lock_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+
+        <android.support.v7.widget.CardView
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardCornerRadius="8dp"
+            android:elevation="5dp"
+            android:rotation="3"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="170dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview"
+            android:rotation="-2"
+            android:elevation="10dp"
+            app:cardCornerRadius="8dp"
+            app:contentPadding="3dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/cardview_light_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginStart="30dp"
+                android:background="@android:color/holo_red_light"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <lib.mozidev.me.extextview.ExTextView
+                    android:id="@+id/t1"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:text="8 characters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:orientation="horizontal"
+                    android:background="@android:color/black" />
+
+                <lib.mozidev.me.extextview.ExTextView
+                    android:id="@+id/t2"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:text="   1 special character"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:orientation="horizontal"
+                    android:background="@android:color/black" />
+
+                <lib.mozidev.me.extextview.ExTextView
+                    android:id="@+id/t3"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:text="1 upper case"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:orientation="horizontal"
+                    android:background="@android:color/black" />
+
+                <lib.mozidev.me.extextview.ExTextView
+                    android:id="@+id/t4"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:text="1 number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <ImageView
+            android:id="@+id/allDoneImageView"
+            android:visibility="invisible"
+            android:elevation="15dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="30dp"
+            android:layout_gravity="end"
+            android:src="@drawable/check_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+    </FrameLayout>
+
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:hint="Enter Password"
+        android:padding="12dp"
+        android:ems="15"
+        android:layout_gravity="center"
+        android:background="@drawable/edittext_background"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:inputType="textPassword" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/saveButton"
+        android:text="SAVE"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/button_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
