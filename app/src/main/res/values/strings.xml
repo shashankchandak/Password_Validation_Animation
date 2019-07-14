@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PasswordValidationAnimation</string>
+    <string name="validation1">8 characters</string>
+    <string name="validation2">   1 special character</string>
+    <string name="validation3">1 upper case</string>
+    <string name="validation4">1 number</string>
 </resources>
