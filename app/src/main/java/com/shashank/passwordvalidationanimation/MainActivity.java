@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,10 +23,11 @@ public class MainActivity extends AppCompatActivity {
     EditText passwordEditText;
     ImageView allDoneImageView;
     StrikeThroughPainting s1,s2,s3,s4;
-    boolean strike1,strike2,strike3,strike4;
+    boolean strike1,strike2,strike3,strike4,allDone;
     String password;
 
     TranslateAnimation animation;
+    Animation imageScaleUp,imageScaleDown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,11 +107,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            if(strike1 && strike2 && strike3 && strike4){
-
+            if(strike1 && strike2 && strike3 && strike4 && !allDone){
+                allDoneImageView.startAnimation(imageScaleUp);
+                allDoneImageView.setVisibility(View.VISIBLE);
+                allDone=true;
             }
             else{
-
+                if(allDone){
+                    allDoneImageView.startAnimation(imageScaleDown);
+                    allDoneImageView.setVisibility(View.INVISIBLE);
+                    allDone=false;
+                }
             }
         }
 
@@ -120,6 +130,9 @@ public class MainActivity extends AppCompatActivity {
          animation.setDuration(200);  // animation duration
          animation.setRepeatCount(1);  // animation repeat count
          animation.setRepeatMode(2);
+
+         imageScaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
+         imageScaleDown=AnimationUtils.loadAnimation(this,R.anim.scale_down);
 
      }
 
@@ -147,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         s4.cutTextEdge(true).color(getResources().getColor(R.color.colorStrike,null)).strokeWidth(3F).
                 mode(StrikeThroughPainting.MODE_DEFAULT).linePosition(0.7F).totalTime(700L);
 
-        strike1=strike2=strike3=strike4=false;
+        strike1=strike2=strike3=strike4=allDone=false;
 
         passwordEditText.addTextChangedListener(new TextWatcher() {
             @Override
