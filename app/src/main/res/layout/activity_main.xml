@@ -106,7 +106,7 @@
                     android:layout_margin="5dp"
                     android:textSize="20sp"
                     android:gravity="center"
-                    android:textColor="#000000"
+                    android:textColor="@android:color/black"
                     android:text="@string/validation1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -115,14 +115,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:orientation="horizontal"
-                    android:background="@android:color/black" />
+                    android:background="@android:color/holo_blue_light" />
 
                 <lib.mozidev.me.extextview.ExTextView
                     android:id="@+id/validation2TextView"
                     android:layout_margin="5dp"
                     android:textSize="20sp"
                     android:gravity="center"
-                    android:textColor="#000000"
+                    android:textColor="@android:color/black"
                     android:text="@string/validation2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -131,7 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:orientation="horizontal"
-                    android:background="@android:color/black" />
+                    android:background="@android:color/holo_blue_light" />
 
                 <lib.mozidev.me.extextview.ExTextView
                     android:id="@+id/validation3TextView"
@@ -139,6 +139,7 @@
                     android:textSize="20sp"
                     android:gravity="center"
                     android:text="@string/validation3"
+                    android:textColor="@android:color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -147,13 +148,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:orientation="horizontal"
-                    android:background="@android:color/black" />
+                    android:background="@android:color/holo_blue_light" />
 
                 <lib.mozidev.me.extextview.ExTextView
                     android:id="@+id/validation4TextView"
                     android:layout_margin="5dp"
                     android:textSize="20sp"
                     android:gravity="center"
+                    android:textColor="@android:color/black"
                     android:text="@string/validation4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
