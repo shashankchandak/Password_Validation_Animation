@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import lib.mozidev.me.extextview.ExTextView;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     StrikeThroughPainting s1,s2,s3,s4;
     boolean strike1,strike2,strike3,strike4,allDone;
     String password;
+    String specialCharRegex,UpperCaseRegex,NumberRegex;
 
     TranslateAnimation animation;
     Animation imageScaleUp,imageScaleDown;
@@ -43,65 +45,67 @@ public class MainActivity extends AppCompatActivity {
     void validate(){
 
         password=passwordEditText.getText().toString().trim();
-        if(!password.isEmpty()){
 
-            if(password.length()>8 &&!strike1){
-
-                validation1TextView.setTextColor(Color.GRAY);   //change color to black
-                s1.strikeThrough();             //strike the text
-                validation1TextView.startAnimation(animation);      //animate from left to right and back
-                strike1=true;
+            if(password.length()>8){
+                if(!strike1) {
+                    validation1TextView.setTextColor(Color.GRAY);   //change color to black
+                    s1.strikeThrough();             //strike the text
+                    validation1TextView.startAnimation(animation);      //animate from left to right and back
+                    strike1 = true;
+                }
             }
             else{
                 if(strike1) {
                     validation1TextView.setTextColor(Color.BLACK);
-                    validation1TextView.startAnimation(animation);
                     s1.clearStrikeThrough();
                     strike1=false;
                 }
             }
 
-            if(password.matches("(?=.*[@#$%^&+=])") && !strike2){
-                validation2TextView.setTextColor(Color.GRAY);   //change color to black
-                s2.strikeThrough();             //strike the text
-                validation2TextView.startAnimation(animation);      //animate from left to right and back
-                strike2=true;
+            if(password.matches(specialCharRegex)){
+                if(!strike2) {
+                    validation2TextView.setTextColor(Color.GRAY);   //change color to black
+                    s2.strikeThrough();             //strike the text
+                    validation2TextView.startAnimation(animation);      //animate from left to right and back
+                    strike2 = true;
+                }
             }
             else{
                 if(strike2) {
                     validation2TextView.setTextColor(Color.BLACK);
-                    validation2TextView.startAnimation(animation);
                     s2.clearStrikeThrough();
                     strike2=false;
                 }
             }
 
 
-            if(password.matches("(?=.*[A-Z])") && !strike3){
-                validation3TextView.setTextColor(Color.GRAY);   //change color to black
-                s3.strikeThrough();             //strike the text
-                validation3TextView.startAnimation(animation);      //animate from left to right and back
-                strike3=true;
+            if(password.matches(UpperCaseRegex)){
+                if(!strike3) {
+                    validation3TextView.setTextColor(Color.GRAY);   //change color to black
+                    s3.strikeThrough();             //strike the text
+                    validation3TextView.startAnimation(animation);      //animate from left to right and back
+                    strike3 = true;
+                }
             }
             else {
                 if(strike3) {
                     validation3TextView.setTextColor(Color.BLACK);
-                    validation3TextView.startAnimation(animation);
                     s3.clearStrikeThrough();
                     strike3 = false;
                 }
             }
 
-            if(password.matches("(?=.*[0-9])")&& !strike3){
-                validation4TextView.setTextColor(Color.GRAY);   //change color to black
-                s4.strikeThrough();             //strike the text
-                validation4TextView.startAnimation(animation);      //animate from left to right and back
-                strike4=true;
+            if(password.matches(NumberRegex)){
+                if(!strike4) {
+                    validation4TextView.setTextColor(Color.GRAY);   //change color to black
+                    s4.strikeThrough();             //strike the text
+                    validation4TextView.startAnimation(animation);      //animate from left to right and back
+                    strike4 = true;
+                }
             }
             else {
                 if(strike4) {
                     validation4TextView.setTextColor(Color.BLACK);
-                    validation4TextView.startAnimation(animation);
                     s4.clearStrikeThrough();
                     strike4 = false;
                 }
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                     allDone=false;
                 }
             }
-        }
+
 
     }
 
@@ -161,7 +165,9 @@ public class MainActivity extends AppCompatActivity {
                 mode(StrikeThroughPainting.MODE_DEFAULT).linePosition(0.7F).totalTime(700L);
 
         strike1=strike2=strike3=strike4=allDone=false;
-
+        specialCharRegex=".*[@#$%^&+=].*";
+        UpperCaseRegex=".*[A-Z].*";
+        NumberRegex=".*[0-9].*";
         passwordEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
