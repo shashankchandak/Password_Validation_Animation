@@ -49,9 +49,66 @@ public class MainActivity extends AppCompatActivity {
                 strike1=true;
             }
             else{
-
+                if(strike1) {
+                    validation1TextView.setTextColor(Color.BLACK);
+                    validation1TextView.startAnimation(animation);
+                    s1.clearStrikeThrough();
+                    strike1=false;
+                }
             }
 
+            if(password.matches("(?=.*[@#$%^&+=])") && !strike2){
+                validation2TextView.setTextColor(Color.GRAY);   //change color to black
+                s2.strikeThrough();             //strike the text
+                validation2TextView.startAnimation(animation);      //animate from left to right and back
+                strike2=true;
+            }
+            else{
+                if(strike2) {
+                    validation2TextView.setTextColor(Color.BLACK);
+                    validation2TextView.startAnimation(animation);
+                    s2.clearStrikeThrough();
+                    strike2=false;
+                }
+            }
+
+
+            if(password.matches("(?=.*[A-Z])") && !strike3){
+                validation3TextView.setTextColor(Color.GRAY);   //change color to black
+                s3.strikeThrough();             //strike the text
+                validation3TextView.startAnimation(animation);      //animate from left to right and back
+                strike3=true;
+            }
+            else {
+                if(strike3) {
+                    validation3TextView.setTextColor(Color.BLACK);
+                    validation3TextView.startAnimation(animation);
+                    s3.clearStrikeThrough();
+                    strike3 = false;
+                }
+            }
+
+            if(password.matches("(?=.*[0-9])")&& !strike3){
+                validation4TextView.setTextColor(Color.GRAY);   //change color to black
+                s4.strikeThrough();             //strike the text
+                validation4TextView.startAnimation(animation);      //animate from left to right and back
+                strike4=true;
+            }
+            else {
+                if(strike4) {
+                    validation4TextView.setTextColor(Color.BLACK);
+                    validation4TextView.startAnimation(animation);
+                    s4.clearStrikeThrough();
+                    strike4 = false;
+                }
+            }
+
+            if(strike1 && strike2 && strike3 && strike4){
+
+            }
+            else{
+
+            }
         }
 
     }
